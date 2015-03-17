@@ -11,12 +11,27 @@ TEMPLATE = lib
 
 DEFINES += USAGEENVIRONMENT_LIBRARY
 
-SOURCES += usageenvironment.cpp
+INCLUDEPATH += ../liveMedia
+INCLUDEPATH += ../groupsock
+INCLUDEPATH += ../BasicUsageEnvironment
+INCLUDEPATH += ../UsageEnvironment
+SOURCES += \
+    HashTable.cpp \
+    strDup.cpp \
+    UsageEnvironment.cpp
 
-HEADERS += usageenvironment.h\
-        usageenvironment_global.h
+HEADERS += \
+    Boolean.hh \
+    HashTable.hh \
+    strDup.hh \
+    UsageEnvironment.hh \
+    UsageEnvironment_version.hh
 
 unix {
     target.path = /usr/lib
     INSTALLS += target
 }
+
+OTHER_FILES += \
+    Makefile.head \
+    Makefile.tail

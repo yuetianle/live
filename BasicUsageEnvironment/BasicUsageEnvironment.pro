@@ -11,12 +11,29 @@ TEMPLATE = lib
 
 DEFINES += BASICUSAGEENVIRONMENT_LIBRARY
 
-SOURCES += basicusageenvironment.cpp
+INCLUDEPATH += ../liveMedia
+INCLUDEPATH += ../groupsock
+INCLUDEPATH += ../UsageEnvironment
+SOURCES +=  BasicHashTable.cpp \
+    BasicTaskScheduler.cpp \
+    BasicTaskScheduler0.cpp \
+    BasicUsageEnvironment.cpp \
+    BasicUsageEnvironment0.cpp \
+    DelayQueue.cpp
 
-HEADERS += basicusageenvironment.h\
-        basicusageenvironment_global.h
+HEADERS +=\
+    BasicHashTable.hh \
+    BasicUsageEnvironment_version.hh \
+    BasicUsageEnvironment.hh \
+    BasicUsageEnvironment0.hh \
+    DelayQueue.hh \
+    HandlerSet.hh
 
 unix {
     target.path = /usr/lib
     INSTALLS += target
 }
+
+OTHER_FILES += \
+    Makefile.head \
+    Makefile.tail

@@ -10,13 +10,36 @@ TARGET = groupsock
 TEMPLATE = lib
 
 DEFINES += GROUPSOCK_LIBRARY
+INCLUDEPATH += ../liveMedia
+INCLUDEPATH += ../groupsock
+INCLUDEPATH += ../BasicUsageEnvironment
+INCLUDEPATH += ../UsageEnvironment
 
-SOURCES += groupsock.cpp
+SOURCES += \
+    GroupEId.cpp \
+    Groupsock.cpp \
+    GroupsockHelper.cpp \
+    IOHandlers.cpp \
+    NetAddress.cpp \
+    NetInterface.cpp \
+    inet.c
 
-HEADERS += groupsock.h\
-        groupsock_global.h
+HEADERS += \
+    GroupEId.hh \
+    Groupsock.hh \
+    groupsock_version.hh \
+    GroupsockHelper.hh \
+    IOHandlers.hh \
+    NetAddress.hh \
+    NetCommon.h \
+    NetInterface.hh \
+    TunnelEncaps.hh
 
 unix {
     target.path = /usr/lib
     INSTALLS += target
 }
+
+OTHER_FILES += \
+    Makefile.head \
+    Makefile.tail
